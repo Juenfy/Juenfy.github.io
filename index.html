@@ -158,6 +158,70 @@
 <div class="home-banner-container flex justify-center items-center transition-fade relative">
     
     <div class="content mt-8 flex flex-col justify-center items-center transition-fade-down">
+        <div class="cover-wechat-iframe-container">
+            <img src="/images/mobile.webp" alt="">	
+            <iframe
+                width="375"
+                height="735"
+                frameborder="0"
+                scrolling="no"
+                style="overflow: hidden;"
+                id="cover-wechat-iframe"
+                >
+            </iframe>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let url = 'http://124.71.219.151:5173';
+                let coverWechatIframe = document.getElementById('cover-wechat-iframe');
+                coverWechatIframe.src = url;
+                document.getElementsByClassName('tool-dark-light-toggle')[0].addEventListener('click', function () {
+                    console.log(document.body.className);
+                    if (document.body.className.indexOf('dark') !== -1) {
+                        coverWechatIframe.src = url + '?theme=light';
+                    } else {
+                        coverWechatIframe.src = url + '?theme=dark';
+                    }
+                });
+            });
+        </script>
+        <style>
+            .cover-wechat-iframe-container {
+                position: absolute;
+                top: 10px;
+                right: 100px;
+                height: 755px;
+                width: 395px;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .cover-wechat-iframe-container > img {
+                height:755px;
+                width: 395px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .cover-wechat-iframe-container > iframe {
+                height: 735px;
+                width: 375px;
+                border-radius: 40px;
+                overflow: hidden;
+                z-index: 100;
+            }
+            @media only screen and (max-width: 768px) {
+                .cover-wechat-iframe-container {
+                    display: none;
+                }
+            }
+            @media only screen and (min-width: 768px) {
+                .cover-wechat-iframe-container {
+                    display: flex;
+                }
+            }
+        </style>
         <div class="description flex flex-col justify-center items-center w-screen font-medium text-center"
         
         >
@@ -457,15 +521,15 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -497,15 +561,15 @@
 </div>
                 <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -520,6 +584,85 @@
 			<div class="main-content">
 				<div class="home-content-container">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2025/06/13/%E5%9C%A8%E5%8D%9A%E5%AE%A2%E9%87%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA/">
+                            在博客里面添加个人开发的移动端项目演示
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            在博客里面添加个人项目演示一、准备工作1.安装一个主题，这里以主题redefine为例子传送门：Github
+2.定位修改代码的位置首选我们可以确定不能直接修改public里面生成出来的html，因为这样下次hexo generate的时候，代码会丢失，所以我们需要修改主题的模板文。可以修改这个文件，因为页面空旷的位置比较多。blog\themes\redefine\layout\pages...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Jun 13 2025 16:31:37 GMT+0800">
+                
+                    2025-06-13
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E6%95%99%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/hexo/">hexo</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2025/06/13/%E5%9C%A8%E5%8D%9A%E5%AE%A2%E9%87%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA/">阅读全文<span class="seo-reader-text">在博客里面添加个人开发的移动端项目演示</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
         
             <li class="home-article-item">
 
@@ -1003,7 +1146,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 6 篇文章
+                        共撰写了 7 篇文章
                     </span>
                     
                 </p>
